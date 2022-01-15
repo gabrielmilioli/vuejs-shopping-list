@@ -1,2 +1,3 @@
 # vuejs-shopping-list
 a shopping list created with vuejs and bootstrap
+learned with https://vueschool.io/lessons/getting-started-with-vue-js-3
