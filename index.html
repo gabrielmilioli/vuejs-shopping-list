@@ -57,12 +57,14 @@
           <span class="badge bg-danger rounded-pill mx-2" v-if="item.highPriority">High</span>
         </div>
         <div class="d-grid d-flex gap-2 justify-content-between align-items-center" style="min-height: 24px;">
-          <a href="" title="Purchase" @click.prevent="purchase(item)"
-            :class="{'text-success': item.purchased}">
+          <a href="" title="Purchase" @click.prevent="purchase(item)" :class="{'text-success': item.purchased}">
             <i class="bi bi-coin"></i>
           </a>
           <a href="" title="Edit" @click.prevent="edit(item)">
             <i class="bi bi-pencil-fill"></i>
+          </a>
+          <a href="" class="text-danger" title="Remove" @click.prevent="remove(item)">
+            <i class="bi bi-trash-fill"></i>
           </a>
         </div>
       </li>
@@ -121,6 +123,10 @@
         },
         purchase(item) {
           item.purchased = !item.purchased;
+        },
+        remove(item) {
+          const index = this.items.findIndex(i => i.id === item.id);
+          this.items.splice(index, 1);
         },
         edit(item) {
           this.editingId = item.id;
